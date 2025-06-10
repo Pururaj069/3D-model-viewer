@@ -1,0 +1,36 @@
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.spinner {
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.spinner-message {
+  color: #666;
+  font-size: 16px;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Compact spinner variant */
+.spinner-container.compact {
+  min-height: auto;
+  padding: 20px;
+}
+
+.spinner-container.compact .spinner-message {
+  font-size: 14px;
+}

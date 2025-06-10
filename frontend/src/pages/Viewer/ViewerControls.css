@@ -1,0 +1,182 @@
+.viewer-controls {
+  width: 280px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  margin: 20px 20px 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-y: auto;
+}
+
+.controls-section {
+  margin-bottom: 30px;
+}
+
+.controls-section:last-child {
+  margin-bottom: 0;
+}
+
+.controls-section h4 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #667eea;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+  position: relative;
+  user-select: none;
+}
+
+.control-item:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.control-item input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-right: 12px;
+  transition: all 0.3s ease;
+  border: 2px solid #ddd;
+}
+
+.control-item:hover .checkmark {
+  border-color: #667eea;
+}
+
+.control-item input:checked ~ .checkmark {
+  background-color: #667eea;
+  border-color: #667eea;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.control-item input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.control-button {
+  width: 100%;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.control-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.control-button:active {
+  transform: translateY(0);
+}
+
+.instructions {
+  background: rgba(102, 126, 234, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.instructions p {
+  margin: 0 0 8px 0;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.instructions p:last-child {
+  margin-bottom: 0;
+}
+
+.instructions strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .viewer-controls {
+    width: 250px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .viewer-controls {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    width: 200px;
+    max-height: calc(100vh - 100px);
+    z-index: 20;
+  }
+  
+  .controls-section h4 {
+    font-size: 14px;
+  }
+  
+  .control-item {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  .checkmark {
+    height: 18px;
+    width: 18px;
+    margin-right: 10px;
+  }
+  
+  .instructions {
+    padding: 12px;
+  }
+  
+  .instructions p {
+    font-size: 12px;
+  }
+}
