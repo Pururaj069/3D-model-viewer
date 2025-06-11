@@ -10,9 +10,10 @@ app.use(cors());
 
 // Configure AWS SDK with credentials from .env
 AWS.config.update({
-  region: process.env.AWS_REGION,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  //region: process.env.AWS_REGION,
+  //accessKeyId: process.env.AWS_ACCESS_KEY_ID,  // use access id and access key if building locally 
+  //secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.AWS_REGION
 });
 
 const s3 = new AWS.S3();
