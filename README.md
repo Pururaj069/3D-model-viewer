@@ -81,7 +81,7 @@ A full-stack web application that displays interactive 3D models, hosted securel
     In the frontend/default.conf file, update the /api/ proxy to point to your backend EC2 instance’s private ip
 
     location /api/ {
-    proxy_pass http://<your-backend-private-ip>:4000/;
+    proxy_pass http://your-backend-private-ip:4000/;
     ...
     }
 
