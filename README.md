@@ -7,7 +7,7 @@ A full-stack web application that displays interactive 3D models, hosted securel
 ## 📸 Project Preview
 
 <!-- Add demo screenshots or GIFs here -->
-![Architecture ](./images/react3d.svg)
+![Architecture ](./images/archi.svg)
 ![3D Model Interaction](./images/3dmodel.png)
 ![3D Model Frontend](./images/front.png)
 
