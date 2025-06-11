@@ -56,3 +56,53 @@ A full-stack web application that displays interactive 3D models, hosted securel
 | Security       | Private subnet, SG rules, Env vars   |
 
 ---
+## 📦 Prerequisites
+
+- AWS account with an S3 bucket configured for model and image storage
+- Terraform CLI
+---
+
+## 🚀 Deployment Instructions
+
+1. **Clone the Repository**
+
+2. **Deploy infrastructure using terraform**
+
+3. **Add Environment File to Backend**
+
+    Navigate to the backend/ directory and create a .env file with your AWS bucket name region and port
+
+    AWS_REGION=your-region
+    S3_BUCKET=your-s3-bucket-name
+    PORT=4000
+
+4. **Update Nginx Configuration**
+
+    In the frontend/default.conf file, update the /api/ proxy to point to your backend EC2 instance’s private ip
+
+    location /api/ {
+    proxy_pass http://<your-backend-private-ip>:4000/;
+    ...
+    }
+
+5. **Build Docker Images**
+
+    Build both backend and frontend Docker images: 
+    # Backend
+    cd backend
+    docker build -t backend-app .
+
+    # Frontend
+    cd ../frontend
+    docker build -t frontend-app .
+
+6. **Run Docker Containers**
+
+    Start containers on their respective EC2 instances:
+
+    # On backend EC2 (private)
+    docker run -d --name backend-container -p 4000:4000 --env-file .env backend-app
+
+    # On frontend EC2 (public)
+    docker run -d --name frontend-container -p 80:80 frontend-app
+
