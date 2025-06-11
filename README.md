@@ -106,3 +106,6 @@ A full-stack web application that displays interactive 3D models, hosted securel
     # On frontend EC2 (public)
     `docker run -d --name frontend-container -p 80:80 frontend-app`
 
+## 🔧 Post-Deployment
+
+   After successful deployment, your application should be accessible via the public EC2 instance's IP address or domain name.
