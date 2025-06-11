@@ -72,9 +72,9 @@ A full-stack web application that displays interactive 3D models, hosted securel
 
     Navigate to the backend/ directory and create a .env file with your AWS bucket name region and port
 
-    AWS_REGION=your-region
-    S3_BUCKET=your-s3-bucket-name
-    PORT=4000
+    `AWS_REGION=your-region`
+    `S3_BUCKET=your-s3-bucket-name`
+    `PORT=4000`
 
 4. **Update Nginx Configuration**
 
@@ -89,20 +89,20 @@ A full-stack web application that displays interactive 3D models, hosted securel
 
     Build both backend and frontend Docker images: 
     # Backend
-    cd backend
-    docker build -t backend-app .
+    `cd backend`
+    `docker build -t backend-app .`
 
     # Frontend
-    cd ../frontend
-    docker build -t frontend-app .
+    `cd ../frontend`
+    `docker build -t frontend-app .`
 
 6. **Run Docker Containers**
 
     Start containers on their respective EC2 instances:
 
     # On backend EC2 (private)
-    docker run -d --name backend-container -p 4000:4000 --env-file .env backend-app
+    `docker run -d --name backend-container -p 4000:4000 --env-file .env backend-app`
 
     # On frontend EC2 (public)
-    docker run -d --name frontend-container -p 80:80 frontend-app
+    `docker run -d --name frontend-container -p 80:80 frontend-app`
 
